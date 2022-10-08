@@ -20,7 +20,7 @@ public class IntegerAdvancedTask {
      * Пример: (1, 2, 3) -> 7
      */
     public static long progression(int a, double q, int n) {
-        if (q == 1) {
+        if (Math.abs(q - 1.0) <= EPS) {
             return (long) a * n;
         }
         return (long) (a * (Math.pow(q, n) - 1) / (q - 1));
@@ -46,8 +46,8 @@ public class IntegerAdvancedTask {
         if (up - down <= 0 && right - left <= 0) {
             return Integer.MAX_VALUE;
         }
-        double daysX = (double) (grassX - right + (right - left)) / (right - left);
-        double daysY = (double) (grassY - up + (up - down)) / (up - down);
+        double daysX = (double) (grassX - left) / (right - left);
+        double daysY = (double) (grassY - down) / (up - down);
         return (int) Math.min(Math.ceil(Math.abs(daysX)), Math.ceil(Math.abs(daysY)));
     }
 
@@ -63,9 +63,6 @@ public class IntegerAdvancedTask {
             nCopy /= HEX_RADIX;
         }
         char hexValue = Character.forDigit(nCopy % HEX_RADIX, HEX_RADIX);
-        if (Character.isDigit(hexValue)) {
-            return hexValue;
-        }
         return Character.toUpperCase(hexValue);
     }
 

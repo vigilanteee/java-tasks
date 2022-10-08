@@ -38,7 +38,7 @@ public class DoubleAdvancedTask {
         double cV = (double) d / a;
 
         double Q = (Math.pow(aV, 2) - 3 * bV) / 9;
-        double R = ((2 * Math.pow(aV, 3)) - (9 * aV * bV) + (27 * cV)) / 54;
+        double R = (2 * Math.pow(aV, 3) - 9 * aV * bV + 27 * cV) / 54;
         double S = Math.pow(Q, 3) - Math.pow(R, 2);
 
         if (S > 0) {
